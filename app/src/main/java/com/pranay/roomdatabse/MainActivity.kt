@@ -2,9 +2,7 @@ package com.pranay.roomdatabse
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.lifecycle.lifecycleScope
-import androidx.room.Room
-import androidx.room.RoomDatabase
+
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
@@ -14,12 +12,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        database = Room.databaseBuilder(applicationContext,ContactDatabase::class.java
-            ,"contactDB").build()
+        database = ContactDatabase.getDatabase(this)
 
 
         GlobalScope.launch {
-            database.contactDao().insertContact(Contact(0,"pranay","12300"))
+            database.contactDao().insertContact(Contact(0,"bittu","12300"))
         }
     }
 }
