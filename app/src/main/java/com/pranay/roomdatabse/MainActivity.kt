@@ -5,6 +5,7 @@ import android.os.Bundle
 
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import java.util.Date
 
 lateinit var database: ContactDatabase
 class MainActivity : AppCompatActivity() {
@@ -16,7 +17,7 @@ class MainActivity : AppCompatActivity() {
 
 
         GlobalScope.launch {
-            database.contactDao().insertContact(Contact(0,"bittu","12300"))
+            database.contactDao().insertContact(Contact(0,"bittu","12300", Date()))
         }
     }
 }
